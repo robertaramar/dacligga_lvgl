@@ -1,9 +1,9 @@
 /**
- * @file ui.h
+ * @file dacligga_lvgl.h
  */
 
-#ifndef UI_H
-#define UI_H
+#ifndef DACLIGGA_LVGL_H
+#define DACLIGGA_LVGL_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,9 +12,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-
-/* Include all the UI libraries */
-#include "dacligga_lvgl.h"
+#include "dacligga_lvgl_gen.h"
 
 /*********************
  *      DEFINES
@@ -23,6 +21,8 @@ extern "C" {
 /**********************
  *      TYPEDEFS
  **********************/
+
+
 
 /**********************
  * GLOBAL VARIABLES
@@ -33,9 +33,9 @@ extern "C" {
  **********************/
 
 /**
- * Initialize all the custom component libraries (not calling `lv_init()`)
+ * Initialize the component library
  */
-void ui_init(const char * asset_path);
+void dacligga_lvgl_init(const char * asset_path);
 
 /**********************
  *      MACROS
@@ -45,4 +45,4 @@ void ui_init(const char * asset_path);
 } /*extern "C"*/
 #endif
 
-#endif /*UI_H*/
+#endif /*DACLIGGA_LVGL_H*/

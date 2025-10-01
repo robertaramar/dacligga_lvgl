@@ -3,49 +3,47 @@
 <screen>
 	<view>
 		<!-- The whole screen is a column layout: header on the top and some content below it -->
-		<column width="100%">
+		<column width="100%" height="100%">
 			<!-- A header where the children are placed in a row.
 			     "space_between" uses the whole space evenly -->
 			<row 
 				width="100%"
+				height="30%"
 				style_flex_main_place="space_between"
 				style_pad_all="8"
 				style_bg_opa="100%"
-				style_bg_color="0x002c57"
+				style_bg_color="0xffffff"
 			>
-				<button text="DIN MIDI" />
-				<button text="USB MIDI" />
-				<button text="Internal" />
+				<icon_button icon="icon_midi" height="100%" my_bg_color="0xa86868" />
+				<icon_button icon="icon_usb" height="100%" />
+				<icon_button icon="icon_gear" height="100%" />
 			</row>
 
             <row width="100%" height="40%"
-				style_flex_main_place="space_between"
+				style_flex_main_place="center"
 				style_pad_all="8"
 				style_bg_opa="100%"
-				style_bg_color="0x002c57"
+				style_bg_color="0xf1f6a7"
+				align="center"
 			>
-			<!-- A simple column with . Add a lot of them to make the screen scrolling. -->
-			<column style_pad_all="8" style_pad_row="8">
-				<lv_checkbox text="First" />
-				<lv_checkbox text="Second" />
-				<!-- By adding "ignore_layout" the component can be positioned freely -->
-				<lv_checkbox text="Third" />
-				<lv_checkbox text="Forth" />
-			</column>
-         </row>
+				<lv_button align="center" height="90%" style_pad_all="4" style_bg_color="0x7c0000">
+					<lv_label text="120" style_text_font="big_shoulders_80" />
+				</lv_button>
+               </row>
 
 			<row
 				width="100%"
+				height="30%"
 				style_flex_main_place="space_between"
 				style_pad_all="8"
 				style_bg_opa="100%"
-				style_bg_color="0xcf4949"
+				style_bg_color="0xffffff"
 				style_text_color="0xddd"
 			>
-				<button text="DIN MIDI" />
-				<button text="USB MIDI" />
-				<button text="Audio" />
-				<button text="Buzzer" />
+				<icon_button icon="icon_midi" height="100%" />
+				<icon_button icon="icon_usb" height="100%" />
+				<icon_button icon="icon_earbuds" height="100%" />
+				<icon_button icon="icon_speaker" height="100%" />
 			</row>
 		</column>
 	</view>

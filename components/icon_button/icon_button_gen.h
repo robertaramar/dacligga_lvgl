@@ -1,9 +1,9 @@
 /**
- * @file asdf.h
+ * @file icon_button_gen.h
  */
 
-#ifndef ASDF_H
-#define ASDF_H
+#ifndef ICON_BUTTON_H
+#define ICON_BUTTON_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -12,7 +12,11 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
-#include "asdf_gen.h"
+#ifdef LV_LVGL_H_INCLUDE_SIMPLE
+    #include "lvgl.h"
+#else
+    #include "lvgl/lvgl.h"
+#endif
 
 /*********************
  *      DEFINES
@@ -22,20 +26,12 @@ extern "C" {
  *      TYPEDEFS
  **********************/
 
-
-
-/**********************
- * GLOBAL VARIABLES
- **********************/
-
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
 
-/**
- * Initialize the component library
- */
-void asdf_init(const char * asset_path);
+
+lv_obj_t * icon_button_create(lv_obj_t * parent, void * icon, lv_color_t my_bg_color);
 
 /**********************
  *      MACROS
@@ -45,4 +41,4 @@ void asdf_init(const char * asset_path);
 } /*extern "C"*/
 #endif
 
-#endif /*ASDF_H*/
+#endif /*ICON_BUTTON_H*/

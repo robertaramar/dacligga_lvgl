@@ -1,11 +1,11 @@
 /**
- * @file asdf.c
+ * @file dacligga_lvgl.c
  */
 
 /*********************
  *      INCLUDES
  *********************/
-#include "asdf.h"
+#include "dacligga_lvgl.h"
 
 /*********************
  *      DEFINES
@@ -31,9 +31,9 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-void asdf_init(const char * asset_path)
+void dacligga_lvgl_init(const char * asset_path)
 {
-    asdf_init_gen(asset_path);
+    dacligga_lvgl_init_gen(asset_path);
 }
 
 /**********************
