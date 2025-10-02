@@ -102,17 +102,8 @@ extern lv_style_t figma_import_test;
 /*----------------
  * Fonts
  *----------------*/
-extern lv_font_t * geist_semibold_12;
-extern lv_font_t * geist_semibold_14;
-extern lv_font_t * geist_bold_16;
-extern lv_font_t * geist_semibold_20;
-extern lv_font_t * geist_semibold_28;
-extern lv_font_t * geist_regular_12;
-extern lv_font_t * geist_regular_14;
-extern lv_font_t * geist_light_60;
-extern lv_font_t * literata_80;
-extern lv_font_t * abril_fatface_80;
-extern lv_font_t * big_shoulders_80;
+extern lv_font_t * big_shoulders_45;
+extern lv_font_t * big_shoulders_14;
 
 /*----------------
  * Images

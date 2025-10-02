@@ -8,9 +8,20 @@
 			     "space_between" uses the whole space evenly -->
 			<row 
 				width="100%"
-				height="30%"
+				height="10%"
 				style_flex_main_place="space_between"
-				style_pad_all="8"
+				style_pad_all="2"
+				style_bg_opa="100%"
+				style_bg_color="0xffffff"
+				align="center"
+			>
+				<lv_label text="Sources" style_text_font="big_shoulders_14" width="100%" style_text_align="center" />
+         	</row>
+			<row 
+				width="100%"
+				height="25%"
+				style_flex_main_place="space_between"
+				style_pad_all="4"
 				style_bg_opa="100%"
 				style_bg_color="0xffffff"
 			>
@@ -19,23 +30,24 @@
 				<icon_button icon="icon_gear" height="100%" />
 			</row>
 
-            <row width="100%" height="40%"
+            <row width="100%" height="30%"
 				style_flex_main_place="center"
 				style_pad_all="8"
 				style_bg_opa="100%"
 				style_bg_color="0xf1f6a7"
 				align="center"
 			>
-				<lv_button align="center" height="90%" style_pad_all="4" style_bg_color="0x7c0000">
-					<lv_label text="120" style_text_font="big_shoulders_80" />
+				<lv_button align="center" width="40%" height="90%" style_pad_all="0" style_bg_color="0x7c0000">
+					<lv_label text="120" style_text_font="big_shoulders_45" width="100%" style_text_align="center" />
 				</lv_button>
+				
                </row>
 
 			<row
 				width="100%"
-				height="30%"
+				height="25%"
 				style_flex_main_place="space_between"
-				style_pad_all="8"
+				style_pad_all="4"
 				style_bg_opa="100%"
 				style_bg_color="0xffffff"
 				style_text_color="0xddd"
@@ -45,6 +57,17 @@
 				<icon_button icon="icon_earbuds" height="100%" />
 				<icon_button icon="icon_speaker" height="100%" />
 			</row>
+			<row 
+				width="100%"
+				height="10%"
+				style_flex_main_place="space_between"
+				style_pad_all="2"
+				style_bg_opa="100%"
+				style_bg_color="0xffffff"
+				align="center"
+			>
+				<lv_label text="Destinations" style_text_font="big_shoulders_14" width="100%" style_text_align="center" />
+         	</row>
 		</column>
 	</view>
 </screen>

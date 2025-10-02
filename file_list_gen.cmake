@@ -8,4 +8,6 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_layouts_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/ui.c
-  ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl.c)
+  ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/BigShoulders_Bold_ttf_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/BigShoulders_Bold_ttf_data.c)

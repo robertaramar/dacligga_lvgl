@@ -1,0 +1,3 @@
+/home/rschneid/src/esp/examples/lvgl/dacligga.lvgl/build/CMakeFiles/lib-ui.dir
+/home/rschneid/src/esp/examples/lvgl/dacligga.lvgl/build/CMakeFiles/edit_cache.dir
+/home/rschneid/src/esp/examples/lvgl/dacligga.lvgl/build/CMakeFiles/rebuild_cache.dir

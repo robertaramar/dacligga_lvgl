@@ -48,17 +48,10 @@ lv_style_t figma_import_test;
 /*----------------
  * Fonts
  *----------------*/
-lv_font_t * geist_semibold_12;
-lv_font_t * geist_semibold_14;
-lv_font_t * geist_bold_16;
-lv_font_t * geist_semibold_20;
-lv_font_t * geist_semibold_28;
-lv_font_t * geist_regular_12;
-lv_font_t * geist_regular_14;
-lv_font_t * geist_light_60;
-lv_font_t * literata_80;
-lv_font_t * abril_fatface_80;
-lv_font_t * big_shoulders_80;
+lv_font_t * big_shoulders_45;
+extern uint8_t BigShoulders_Bold_ttf_data[];
+extern size_t BigShoulders_Bold_ttf_data_size;
+lv_font_t * big_shoulders_14;
 
 /*----------------
  * Images
@@ -129,39 +122,10 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /*----------------
      * Fonts
      *----------------*/
-    /* create tiny ttf font "geist_semibold_12" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-SemiBold.ttf");
-    geist_semibold_12 = lv_tiny_ttf_create_file(buf, 12);
-    /* create tiny ttf font "geist_semibold_14" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-SemiBold.ttf");
-    geist_semibold_14 = lv_tiny_ttf_create_file(buf, 14);
-    /* create tiny ttf font "geist_bold_16" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-SemiBold.ttf");
-    geist_bold_16 = lv_tiny_ttf_create_file(buf, 16);
-    /* create tiny ttf font "geist_semibold_20" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-SemiBold.ttf");
-    geist_semibold_20 = lv_tiny_ttf_create_file(buf, 20);
-    /* create tiny ttf font "geist_semibold_28" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-SemiBold.ttf");
-    geist_semibold_28 = lv_tiny_ttf_create_file(buf, 28);
-    /* create tiny ttf font "geist_regular_12" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-Regular.ttf");
-    geist_regular_12 = lv_tiny_ttf_create_file(buf, 12);
-    /* create tiny ttf font "geist_regular_14" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-Regular.ttf");
-    geist_regular_14 = lv_tiny_ttf_create_file(buf, 14);
-    /* create tiny ttf font "geist_light_60" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Geist/Geist-Light.ttf");
-    geist_light_60 = lv_tiny_ttf_create_file(buf, 60);
-    /* create tiny ttf font "literata_80" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/Literata/Literata-Bold.ttf");
-    literata_80 = lv_tiny_ttf_create_file(buf, 80);
-    /* create tiny ttf font "abril_fatface_80" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/AbrilFatface/AbrilFatface-Regular.ttf");
-    abril_fatface_80 = lv_tiny_ttf_create_file(buf, 80);
-    /* create tiny ttf font "big_shoulders_80" from file */
-    lv_snprintf(buf, 256, "%s%s", asset_path, "fonts/BigShoulders/BigShoulders-Bold.ttf");
-    big_shoulders_80 = lv_tiny_ttf_create_file(buf, 60);
+    /* create tiny ttf font 'big_shoulders_45' from C array */
+    big_shoulders_45 = lv_tiny_ttf_create_data(BigShoulders_Bold_ttf_data, BigShoulders_Bold_ttf_data_size, 45);
+    /* create tiny ttf font 'big_shoulders_14' from C array */
+    big_shoulders_14 = lv_tiny_ttf_create_data(BigShoulders_Bold_ttf_data, BigShoulders_Bold_ttf_data_size, 14);
 
     /*----------------
      * Images
@@ -208,17 +172,8 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /*Register widgets*/
 
     /* Register fonts */
-    lv_xml_register_font(NULL, "geist_semibold_12", geist_semibold_12);
-    lv_xml_register_font(NULL, "geist_semibold_14", geist_semibold_14);
-    lv_xml_register_font(NULL, "geist_bold_16", geist_bold_16);
-    lv_xml_register_font(NULL, "geist_semibold_20", geist_semibold_20);
-    lv_xml_register_font(NULL, "geist_semibold_28", geist_semibold_28);
-    lv_xml_register_font(NULL, "geist_regular_12", geist_regular_12);
-    lv_xml_register_font(NULL, "geist_regular_14", geist_regular_14);
-    lv_xml_register_font(NULL, "geist_light_60", geist_light_60);
-    lv_xml_register_font(NULL, "literata_80", literata_80);
-    lv_xml_register_font(NULL, "abril_fatface_80", abril_fatface_80);
-    lv_xml_register_font(NULL, "big_shoulders_80", big_shoulders_80);
+    lv_xml_register_font(NULL, "big_shoulders_45", big_shoulders_45);
+    lv_xml_register_font(NULL, "big_shoulders_14", big_shoulders_14);
 
     /* Register subjects */
     lv_xml_register_subject(NULL, "dark_theme", &dark_theme);
