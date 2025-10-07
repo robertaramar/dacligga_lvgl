@@ -66,25 +66,31 @@
 	</subjects>
 
 	<images>
-		<file name="icon_earbuds" figma_node_id="24:37" src_path="images/earbuds.png" />
-		<file name="icon_gear" figma_node_id="57:31" src_path="images/gear.png" />
-		<file name="icon_midi" figma_node_id="24:20" src_path="images/midi.png" />
-		<file name="icon_speaker" figma_node_id="24:8" src_path="images/speaker.png" />
-		<file name="icon_usb" figma_node_id="24:32" src_path="images/usb.png" />
+		<data name="icon_earbuds" color_format="rgb565a8" src_path="images/icon_earbuds.png" />
+		<data name="icon_gear" color_format="rgb565a8" src_path="images/icon_gear.png" />
+		<data name="icon_midi" color_format="rgb565a8" src_path="images/icon_midi.png" />
+		<data name="icon_speaker" color_format="rgb565a8" src_path="images/icon_speaker.png" />
+		<data name="icon_usb" color_format="rgb565a8" src_path="images/icon_usb.png" />
 	</images>
 
 	<fonts>
-		<tiny_ttf
+		<bin
 			name="big_shoulders_45"
+			as_file="false"
+			bpp="2"
 			size="45"
-			as_file="false"
 			src_path="fonts/BigShoulders/BigShoulders-Bold.ttf"
+			range="0x20-0x7f"
+			symbols="äöüÄÖÜß"
 		/>
-		<tiny_ttf
+		<bin
 			name="big_shoulders_14"
-			size="14"
 			as_file="false"
+			bpp="2"
+			size="14"
 			src_path="fonts/BigShoulders/BigShoulders-Bold.ttf"
+			range="0x20-0x75"
+			symbols="äöüÄÖÜß"
 		/>
 	</fonts>
 </globals>

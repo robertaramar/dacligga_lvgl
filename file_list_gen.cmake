@@ -9,5 +9,10 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/ui.c
   ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/BigShoulders_Bold_ttf_data.c
-  ${CMAKE_CURRENT_LIST_DIR}/fonts/BigShoulders_Bold_ttf_data.c)
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/big_shoulders_45_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/fonts/big_shoulders_14_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_earbuds_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_gear_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_midi_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_speaker_data.c
+  ${CMAKE_CURRENT_LIST_DIR}/images/icon_usb_data.c)

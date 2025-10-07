@@ -49,18 +49,23 @@ lv_style_t figma_import_test;
  * Fonts
  *----------------*/
 lv_font_t * big_shoulders_45;
-extern uint8_t BigShoulders_Bold_ttf_data[];
-extern size_t BigShoulders_Bold_ttf_data_size;
+extern lv_font_t big_shoulders_45_data;
 lv_font_t * big_shoulders_14;
+extern lv_font_t big_shoulders_14_data;
 
 /*----------------
  * Images
  *----------------*/
 const void * icon_earbuds;
+extern const void * icon_earbuds_data;
 const void * icon_gear;
+extern const void * icon_gear_data;
 const void * icon_midi;
+extern const void * icon_midi_data;
 const void * icon_speaker;
+extern const void * icon_speaker_data;
 const void * icon_usb;
+extern const void * icon_usb_data;
 
 /*----------------
  * Subjects
@@ -122,24 +127,19 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /*----------------
      * Fonts
      *----------------*/
-    /* create tiny ttf font 'big_shoulders_45' from C array */
-    big_shoulders_45 = lv_tiny_ttf_create_data(BigShoulders_Bold_ttf_data, BigShoulders_Bold_ttf_data_size, 45);
-    /* create tiny ttf font 'big_shoulders_14' from C array */
-    big_shoulders_14 = lv_tiny_ttf_create_data(BigShoulders_Bold_ttf_data, BigShoulders_Bold_ttf_data_size, 14);
+    /* get font 'big_shoulders_45' from a C array */
+    big_shoulders_45 = &big_shoulders_45_data;
+    /* get font 'big_shoulders_14' from a C array */
+    big_shoulders_14 = &big_shoulders_14_data;
 
     /*----------------
      * Images
      *----------------*/
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/earbuds.png");
-    icon_earbuds = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/gear.png");
-    icon_gear = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/midi.png");
-    icon_midi = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/speaker.png");
-    icon_speaker = lv_strdup(buf);
-    lv_snprintf(buf, 256, "%s%s", asset_path, "images/usb.png");
-    icon_usb = lv_strdup(buf);
+    icon_earbuds = &icon_earbuds_data;
+    icon_gear = &icon_gear_data;
+    icon_midi = &icon_midi_data;
+    icon_speaker = &icon_speaker_data;
+    icon_usb = &icon_usb_data;
 
 
     /*----------------
