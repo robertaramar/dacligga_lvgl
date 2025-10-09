@@ -12,6 +12,7 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
+
 #ifdef LV_LVGL_H_INCLUDE_SIMPLE
     #include "lvgl.h"
 #else
@@ -30,8 +31,7 @@ extern "C" {
  * GLOBAL PROTOTYPES
  **********************/
 
-
-lv_obj_t * icon_button_create(lv_obj_t * parent, void * icon, lv_color_t my_bg_color);
+lv_obj_t * icon_button_create(lv_obj_t * parent, const void * icon, lv_color_t my_bg_color);
 
 /**********************
  *      MACROS

@@ -1,19 +1,18 @@
 /**
  * @file screen_layouts_gen.c
- * @description Template source file for LVGL objects
+ * @brief Template source file for LVGL objects
  */
 
 /*********************
  *      INCLUDES
  *********************/
+
 #include "screen_layouts_gen.h"
-#include "ui.h"
+#include "dacligga_lvgl.h"
 
 /*********************
  *      DEFINES
  *********************/
-
-
 
 /**********************
  *      TYPEDEFS
@@ -44,118 +43,89 @@ lv_obj_t * screen_layouts_create(void)
     }
 
     lv_obj_t * lv_obj_0 = lv_obj_create(NULL);
+    lv_obj_set_style_bg_color(lv_obj_0, DC_LIGHT_BACKGROUND, 0);
 
     lv_obj_t * column_0 = column_create(lv_obj_0);
     lv_obj_set_width(column_0, lv_pct(100));
     lv_obj_set_height(column_0, lv_pct(100));
-
     lv_obj_t * row_0 = row_create(column_0);
     lv_obj_set_width(row_0, lv_pct(100));
     lv_obj_set_height(row_0, lv_pct(10));
     lv_obj_set_style_flex_main_place(row_0, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_0, 2, 0);
-    lv_obj_set_style_bg_opa(row_0, (255 * 100 / 100), 0);
-    lv_obj_set_style_bg_color(row_0, lv_color_hex(0xffffff), 0);
     lv_obj_set_align(row_0, LV_ALIGN_CENTER);
-
     lv_obj_t * lv_label_0 = lv_label_create(row_0);
-    lv_label_set_text(lv_label_0, "Sources");
+    lv_label_set_translation_tag(lv_label_0, "inputs");
     lv_obj_set_style_text_font(lv_label_0, big_shoulders_14, 0);
     lv_obj_set_width(lv_label_0, lv_pct(100));
     lv_obj_set_style_text_align(lv_label_0, LV_TEXT_ALIGN_CENTER, 0);
-
-
-
+    
     lv_obj_t * row_1 = row_create(column_0);
     lv_obj_set_width(row_1, lv_pct(100));
     lv_obj_set_height(row_1, lv_pct(25));
     lv_obj_set_style_flex_main_place(row_1, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_1, 4, 0);
-    lv_obj_set_style_bg_opa(row_1, (255 * 100 / 100), 0);
-    lv_obj_set_style_bg_color(row_1, lv_color_hex(0xffffff), 0);
-
+    lv_obj_set_style_border_width(row_1, 1, 0);
+    lv_obj_set_style_border_side(row_1, LV_BORDER_SIDE_BOTTOM, 0);
     lv_obj_t * icon_button_0 = icon_button_create(row_1, icon_midi, lv_color_hex(0xa86868));
     lv_obj_set_height(icon_button_0, lv_pct(100));
-
-
+    
     lv_obj_t * icon_button_1 = icon_button_create(row_1, icon_usb, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_1, lv_pct(100));
-
-
+    
     lv_obj_t * icon_button_2 = icon_button_create(row_1, icon_gear, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_2, lv_pct(100));
-
-
-
+    
     lv_obj_t * row_2 = row_create(column_0);
     lv_obj_set_width(row_2, lv_pct(100));
     lv_obj_set_height(row_2, lv_pct(30));
     lv_obj_set_style_flex_main_place(row_2, LV_FLEX_ALIGN_CENTER, 0);
     lv_obj_set_style_pad_all(row_2, 8, 0);
-    lv_obj_set_style_bg_opa(row_2, (255 * 100 / 100), 0);
-    lv_obj_set_style_bg_color(row_2, lv_color_hex(0xf1f6a7), 0);
     lv_obj_set_align(row_2, LV_ALIGN_CENTER);
-
+    lv_obj_set_style_border_color(row_2, lv_color_hex(0x000000), 0);
     lv_obj_t * lv_button_0 = lv_button_create(row_2);
     lv_obj_set_align(lv_button_0, LV_ALIGN_CENTER);
     lv_obj_set_width(lv_button_0, lv_pct(40));
     lv_obj_set_height(lv_button_0, lv_pct(90));
     lv_obj_set_style_pad_all(lv_button_0, 0, 0);
     lv_obj_set_style_bg_color(lv_button_0, lv_color_hex(0x7c0000), 0);
-
     lv_obj_t * lv_label_1 = lv_label_create(lv_button_0);
-    lv_label_set_text(lv_label_1, "120");
+    lv_label_bind_text(lv_label_1, &bpm_active, NULL);
     lv_obj_set_style_text_font(lv_label_1, big_shoulders_45, 0);
     lv_obj_set_width(lv_label_1, lv_pct(100));
     lv_obj_set_style_text_align(lv_label_1, LV_TEXT_ALIGN_CENTER, 0);
-
-
-
-
+    
     lv_obj_t * row_3 = row_create(column_0);
     lv_obj_set_width(row_3, lv_pct(100));
     lv_obj_set_height(row_3, lv_pct(25));
     lv_obj_set_style_flex_main_place(row_3, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_3, 4, 0);
-    lv_obj_set_style_bg_opa(row_3, (255 * 100 / 100), 0);
-    lv_obj_set_style_bg_color(row_3, lv_color_hex(0xffffff), 0);
     lv_obj_set_style_text_color(row_3, lv_color_hex3(0xddd), 0);
-
+    lv_obj_set_style_border_width(row_3, 1, 0);
+    lv_obj_set_style_border_side(row_3, LV_BORDER_SIDE_TOP, 0);
     lv_obj_t * icon_button_3 = icon_button_create(row_3, icon_midi, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_3, lv_pct(100));
-
-
+    
     lv_obj_t * icon_button_4 = icon_button_create(row_3, icon_usb, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_4, lv_pct(100));
-
-
+    
     lv_obj_t * icon_button_5 = icon_button_create(row_3, icon_earbuds, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_5, lv_pct(100));
-
-
+    
     lv_obj_t * icon_button_6 = icon_button_create(row_3, icon_speaker, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_6, lv_pct(100));
-
-
-
+    
     lv_obj_t * row_4 = row_create(column_0);
     lv_obj_set_width(row_4, lv_pct(100));
     lv_obj_set_height(row_4, lv_pct(10));
     lv_obj_set_style_flex_main_place(row_4, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_4, 2, 0);
-    lv_obj_set_style_bg_opa(row_4, (255 * 100 / 100), 0);
-    lv_obj_set_style_bg_color(row_4, lv_color_hex(0xffffff), 0);
     lv_obj_set_align(row_4, LV_ALIGN_CENTER);
-
     lv_obj_t * lv_label_2 = lv_label_create(row_4);
-    lv_label_set_text(lv_label_2, "Destinations");
+    lv_label_set_translation_tag(lv_label_2, "outputs");
     lv_obj_set_style_text_font(lv_label_2, big_shoulders_14, 0);
     lv_obj_set_width(lv_label_2, lv_pct(100));
     lv_obj_set_style_text_align(lv_label_2, LV_TEXT_ALIGN_CENTER, 0);
-
-
-
-
 
     LV_TRACE_OBJ_CREATE("finished");
 
@@ -167,3 +137,4 @@ lv_obj_t * screen_layouts_create(void)
 /**********************
  *   STATIC FUNCTIONS
  **********************/
+

@@ -77,11 +77,11 @@ extern "C" {
 
 #define ACCENT2_50_DARK lv_color_hex(0x4A473E)
 
+#define DC_LIGHT_BACKGROUND lv_color_hex(0xf1f6a7)
+
 /**********************
  *      TYPEDEFS
  **********************/
-
-
 
 /**********************
  * GLOBAL VARIABLES
@@ -102,12 +102,15 @@ extern lv_style_t figma_import_test;
 /*----------------
  * Fonts
  *----------------*/
+
 extern lv_font_t * big_shoulders_45;
+
 extern lv_font_t * big_shoulders_14;
 
 /*----------------
  * Images
  *----------------*/
+
 extern const void * icon_earbuds;
 extern const void * icon_gear;
 extern const void * icon_midi;
@@ -117,23 +120,20 @@ extern const void * icon_usb;
 /*----------------
  * Subjects
  *----------------*/
+
 extern lv_subject_t dark_theme;
-extern lv_subject_t move_goal_target;
-extern lv_subject_t location1_temp;
-extern lv_subject_t location2_temp;
-extern lv_subject_t thermostat_on;
-extern lv_subject_t thermostat_temp;
-extern lv_subject_t room_temp;
-extern lv_subject_t alarm_on;
-extern lv_subject_t alarm_hour;
-extern lv_subject_t alarm_min;
-extern lv_subject_t speaker;
-extern lv_subject_t speaker_vol;
-extern lv_subject_t light_temperature;
-extern lv_subject_t light_temperature_temp;
-extern lv_subject_t song_played;
-extern lv_subject_t song_liked;
-extern lv_subject_t song_playing;
+extern lv_subject_t bpm_active;
+extern lv_subject_t bpm_midi_uart;
+extern lv_subject_t bpm_midi_usb;
+extern lv_subject_t bpm_internal;
+extern lv_subject_t in_midi_uart;
+extern lv_subject_t in_midi_usb;
+extern lv_subject_t in_internal;
+extern lv_subject_t out_midi_uart;
+extern lv_subject_t out_midi_usb;
+extern lv_subject_t out_midi_lineout;
+extern lv_subject_t out_midi_buzzer;
+extern lv_subject_t out_midi_uart_note_emphasized;
 
 /**********************
  * GLOBAL PROTOTYPES

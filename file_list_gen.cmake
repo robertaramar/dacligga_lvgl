@@ -7,7 +7,6 @@ list(
   ${CMAKE_CURRENT_LIST_DIR}/components/row/row_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/screens/screen_layouts_gen.c
   ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl_gen.c
-  ${CMAKE_CURRENT_LIST_DIR}/ui.c
   ${CMAKE_CURRENT_LIST_DIR}/dacligga_lvgl.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/big_shoulders_45_data.c
   ${CMAKE_CURRENT_LIST_DIR}/fonts/big_shoulders_14_data.c

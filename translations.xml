@@ -1,0 +1,4 @@
+<translations languages="en de">
+	<translation tag="inputs" char_count="40" en="Inputs" de="Quellen" />
+	<translation tag="outputs" char_count="40" en="Outputs" de="Ausgaben" />
+</translations>

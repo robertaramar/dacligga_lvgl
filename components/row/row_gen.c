@@ -1,19 +1,18 @@
 /**
  * @file row_gen.c
- * @description Template source file for LVGL objects
+ * @brief Template source file for LVGL objects
  */
 
 /*********************
  *      INCLUDES
  *********************/
+
 #include "row_gen.h"
-#include "ui.h"
+#include "dacligga_lvgl.h"
 
 /*********************
  *      DEFINES
  *********************/
-
-
 
 /**********************
  *      TYPEDEFS
@@ -50,9 +49,9 @@ lv_obj_t * row_create(lv_obj_t * parent)
     }
 
     lv_obj_t * lv_obj_0 = lv_obj_create(parent);
+
     lv_obj_remove_style_all(lv_obj_0);
     lv_obj_add_style(lv_obj_0, &style_base, 0);
-
 
     LV_TRACE_OBJ_CREATE("finished");
 
@@ -64,3 +63,4 @@ lv_obj_t * row_create(lv_obj_t * parent)
 /**********************
  *   STATIC FUNCTIONS
  **********************/
+

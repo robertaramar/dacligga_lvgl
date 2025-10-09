@@ -5,10 +5,11 @@
 /*********************
  *      INCLUDES
  *********************/
+
 #include "dacligga_lvgl_gen.h"
 
 #if LV_USE_XML
-#endif
+#endif /* LV_USE_XML */
 
 /*********************
  *      DEFINES
@@ -30,6 +31,15 @@
  * Translations
  *----------------*/
 
+#ifndef LV_EDITOR_PREVIEW
+    static const char * translation_languages[] = {"en", "de", NULL};
+    static const char * translation_tags[] = {"inputs", "outputs", NULL};
+    static const char * translation_texts[] = {
+        "Inputs", "Quellen", /* inputs */
+        "Outputs", "Ausgaben", /* outputs */
+    };
+#endif
+
 /**********************
  *  GLOBAL VARIABLES
  **********************/
@@ -41,6 +51,7 @@
 /*----------------
  * Global styles
  *----------------*/
+
 lv_style_t style_disabled;
 lv_style_t style_reset;
 lv_style_t figma_import_test;
@@ -48,6 +59,7 @@ lv_style_t figma_import_test;
 /*----------------
  * Fonts
  *----------------*/
+
 lv_font_t * big_shoulders_45;
 extern lv_font_t big_shoulders_45_data;
 lv_font_t * big_shoulders_14;
@@ -56,6 +68,7 @@ extern lv_font_t big_shoulders_14_data;
 /*----------------
  * Images
  *----------------*/
+
 const void * icon_earbuds;
 extern const void * icon_earbuds_data;
 const void * icon_gear;
@@ -70,23 +83,20 @@ extern const void * icon_usb_data;
 /*----------------
  * Subjects
  *----------------*/
+
 lv_subject_t dark_theme;
-lv_subject_t move_goal_target;
-lv_subject_t location1_temp;
-lv_subject_t location2_temp;
-lv_subject_t thermostat_on;
-lv_subject_t thermostat_temp;
-lv_subject_t room_temp;
-lv_subject_t alarm_on;
-lv_subject_t alarm_hour;
-lv_subject_t alarm_min;
-lv_subject_t speaker;
-lv_subject_t speaker_vol;
-lv_subject_t light_temperature;
-lv_subject_t light_temperature_temp;
-lv_subject_t song_played;
-lv_subject_t song_liked;
-lv_subject_t song_playing;
+lv_subject_t bpm_active;
+lv_subject_t bpm_midi_uart;
+lv_subject_t bpm_midi_usb;
+lv_subject_t bpm_internal;
+lv_subject_t in_midi_uart;
+lv_subject_t in_midi_usb;
+lv_subject_t in_internal;
+lv_subject_t out_midi_uart;
+lv_subject_t out_midi_usb;
+lv_subject_t out_midi_lineout;
+lv_subject_t out_midi_buzzer;
+lv_subject_t out_midi_uart_note_emphasized;
 
 /**********************
  *      MACROS
@@ -103,6 +113,7 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /*----------------
      * Global styles
      *----------------*/
+
     static bool style_inited = false;
 
     if (!style_inited) {
@@ -127,10 +138,12 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /*----------------
      * Fonts
      *----------------*/
+
     /* get font 'big_shoulders_45' from a C array */
     big_shoulders_45 = &big_shoulders_45_data;
     /* get font 'big_shoulders_14' from a C array */
     big_shoulders_14 = &big_shoulders_14_data;
+
 
     /*----------------
      * Images
@@ -141,35 +154,60 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     icon_speaker = &icon_speaker_data;
     icon_usb = &icon_usb_data;
 
-
     /*----------------
      * Subjects
      *----------------*/
     lv_subject_init_int(&dark_theme, 0);
-    lv_subject_init_int(&move_goal_target, 800);
-    lv_subject_init_int(&location1_temp, 25);
-    lv_subject_init_int(&location2_temp, 34);
-    lv_subject_init_int(&thermostat_on, 1);
-    lv_subject_init_int(&thermostat_temp, 16);
-    lv_subject_init_int(&room_temp, 24);
-    lv_subject_init_int(&alarm_on, 1);
-    lv_subject_init_int(&alarm_hour, 06);
-    lv_subject_init_int(&alarm_min, 36);
-    lv_subject_init_int(&speaker, 1);
-    lv_subject_init_int(&speaker_vol, 40);
-    lv_subject_init_int(&light_temperature, 1);
-    lv_subject_init_int(&light_temperature_temp, 3000);
-    lv_subject_init_int(&song_played, 130);
-    lv_subject_init_int(&song_liked, 0);
-    lv_subject_init_int(&song_playing, 0);
+    lv_subject_init_int(&bpm_active, 121);
+    lv_subject_init_int(&bpm_midi_uart, 100);
+    lv_subject_set_min_value_int(&bpm_midi_uart, 40);
+    lv_subject_set_max_value_int(&bpm_midi_uart, 240);
+    lv_subject_init_int(&bpm_midi_usb, 111);
+    lv_subject_set_min_value_int(&bpm_midi_usb, 40);
+    lv_subject_set_max_value_int(&bpm_midi_usb, 240);
+    lv_subject_init_int(&bpm_internal, 99);
+    lv_subject_set_min_value_int(&bpm_internal, 40);
+    lv_subject_set_max_value_int(&bpm_internal, 240);
+    lv_subject_init_int(&in_midi_uart, 0);
+    lv_subject_set_min_value_int(&in_midi_uart, 0);
+    lv_subject_set_max_value_int(&in_midi_uart, 1);
+    lv_subject_init_int(&in_midi_usb, 0);
+    lv_subject_set_min_value_int(&in_midi_usb, 0);
+    lv_subject_set_max_value_int(&in_midi_usb, 1);
+    lv_subject_init_int(&in_internal, 0);
+    lv_subject_set_min_value_int(&in_internal, 0);
+    lv_subject_set_max_value_int(&in_internal, 1);
+    lv_subject_init_int(&out_midi_uart, 0);
+    lv_subject_set_min_value_int(&out_midi_uart, 0);
+    lv_subject_set_max_value_int(&out_midi_uart, 1);
+    lv_subject_init_int(&out_midi_usb, 0);
+    lv_subject_set_min_value_int(&out_midi_usb, 0);
+    lv_subject_set_max_value_int(&out_midi_usb, 1);
+    lv_subject_init_int(&out_midi_lineout, 0);
+    lv_subject_set_min_value_int(&out_midi_lineout, 0);
+    lv_subject_set_max_value_int(&out_midi_lineout, 1);
+    lv_subject_init_int(&out_midi_buzzer, 0);
+    lv_subject_set_min_value_int(&out_midi_buzzer, 0);
+    lv_subject_set_max_value_int(&out_midi_buzzer, 1);
+    static char out_midi_uart_note_emphasized_buf[UI_SUBJECT_STRING_LENGTH];
+    static char out_midi_uart_note_emphasized_prev_buf[UI_SUBJECT_STRING_LENGTH];
+    lv_subject_init_string(&out_midi_uart_note_emphasized,
+                           out_midi_uart_note_emphasized_buf,
+                           out_midi_uart_note_emphasized_prev_buf,
+                           UI_SUBJECT_STRING_LENGTH,
+                           "C#4"
+                          );
 
     /*----------------
      * Translations
      *----------------*/
 
+    #ifndef LV_EDITOR_PREVIEW
+        lv_translation_add_static(translation_languages, translation_tags, translation_texts);
+    #endif
 
 #if LV_USE_XML
-    /*Register widgets*/
+    /* Register widgets */
 
     /* Register fonts */
     lv_xml_register_font(NULL, "big_shoulders_45", big_shoulders_45);
@@ -177,22 +215,18 @@ void dacligga_lvgl_init_gen(const char * asset_path)
 
     /* Register subjects */
     lv_xml_register_subject(NULL, "dark_theme", &dark_theme);
-    lv_xml_register_subject(NULL, "move_goal_target", &move_goal_target);
-    lv_xml_register_subject(NULL, "location1_temp", &location1_temp);
-    lv_xml_register_subject(NULL, "location2_temp", &location2_temp);
-    lv_xml_register_subject(NULL, "thermostat_on", &thermostat_on);
-    lv_xml_register_subject(NULL, "thermostat_temp", &thermostat_temp);
-    lv_xml_register_subject(NULL, "room_temp", &room_temp);
-    lv_xml_register_subject(NULL, "alarm_on", &alarm_on);
-    lv_xml_register_subject(NULL, "alarm_hour", &alarm_hour);
-    lv_xml_register_subject(NULL, "alarm_min", &alarm_min);
-    lv_xml_register_subject(NULL, "speaker", &speaker);
-    lv_xml_register_subject(NULL, "speaker_vol", &speaker_vol);
-    lv_xml_register_subject(NULL, "light_temperature", &light_temperature);
-    lv_xml_register_subject(NULL, "light_temperature_temp", &light_temperature_temp);
-    lv_xml_register_subject(NULL, "song_played", &song_played);
-    lv_xml_register_subject(NULL, "song_liked", &song_liked);
-    lv_xml_register_subject(NULL, "song_playing", &song_playing);
+    lv_xml_register_subject(NULL, "bpm_active", &bpm_active);
+    lv_xml_register_subject(NULL, "bpm_midi_uart", &bpm_midi_uart);
+    lv_xml_register_subject(NULL, "bpm_midi_usb", &bpm_midi_usb);
+    lv_xml_register_subject(NULL, "bpm_internal", &bpm_internal);
+    lv_xml_register_subject(NULL, "in_midi_uart", &in_midi_uart);
+    lv_xml_register_subject(NULL, "in_midi_usb", &in_midi_usb);
+    lv_xml_register_subject(NULL, "in_internal", &in_internal);
+    lv_xml_register_subject(NULL, "out_midi_uart", &out_midi_uart);
+    lv_xml_register_subject(NULL, "out_midi_usb", &out_midi_usb);
+    lv_xml_register_subject(NULL, "out_midi_lineout", &out_midi_lineout);
+    lv_xml_register_subject(NULL, "out_midi_buzzer", &out_midi_buzzer);
+    lv_xml_register_subject(NULL, "out_midi_uart_note_emphasized", &out_midi_uart_note_emphasized);
 
     /* Register callbacks */
 #endif
@@ -200,7 +234,6 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /* Register all the global assets so that they won't be created again when globals.xml is parsed.
      * While running in the editor skip this step to update the preview when the XML changes */
 #if LV_USE_XML && !defined(LV_EDITOR_PREVIEW)
-
     /* Register images */
     lv_xml_register_image(NULL, "icon_earbuds", icon_earbuds);
     lv_xml_register_image(NULL, "icon_gear", icon_gear);
@@ -211,16 +244,14 @@ void dacligga_lvgl_init_gen(const char * asset_path)
 
 #if LV_USE_XML == 0
     /*--------------------
-    *  Permanent screens
-    *-------------------*/
-
-    /*If XML is enabled it's assumed that the permanent screens are created
-     *manaully from XML using lv_xml_create()*/
-
+     *  Permanent screens
+     *-------------------*/
+    /* If XML is enabled it's assumed that the permanent screens are created
+     * manaully from XML using lv_xml_create() */
 #endif
 }
 
-/* callbacks */
+/* Callbacks */
 
 /**********************
  *   STATIC FUNCTIONS

@@ -1,19 +1,18 @@
 /**
  * @file icon_button_gen.c
- * @description Template source file for LVGL objects
+ * @brief Template source file for LVGL objects
  */
 
 /*********************
  *      INCLUDES
  *********************/
+
 #include "icon_button_gen.h"
-#include "ui.h"
+#include "dacligga_lvgl.h"
 
 /*********************
  *      DEFINES
  *********************/
-
-
 
 /**********************
  *      TYPEDEFS
@@ -31,7 +30,7 @@
  *   GLOBAL FUNCTIONS
  **********************/
 
-lv_obj_t * icon_button_create(lv_obj_t * parent, void * icon, lv_color_t my_bg_color)
+lv_obj_t * icon_button_create(lv_obj_t * parent, const void * icon, lv_color_t my_bg_color)
 {
     LV_TRACE_OBJ_CREATE("begin");
 
@@ -75,19 +74,17 @@ lv_obj_t * icon_button_create(lv_obj_t * parent, void * icon, lv_color_t my_bg_c
     }
 
     lv_obj_t * lv_button_0 = lv_button_create(parent);
+
     lv_obj_remove_style_all(lv_button_0);
     lv_obj_add_style(lv_button_0, &style_base, 0);
     lv_obj_add_style(lv_button_0, &style_pressed, LV_STATE_PRESSED);
     lv_obj_add_style(lv_button_0, &style_checked, LV_STATE_CHECKED);
     lv_obj_bind_style(lv_button_0, &style_pressed_dark, LV_STATE_PRESSED, &dark_theme, 1);
-
     lv_obj_t * lv_image_0 = lv_image_create(lv_button_0);
     lv_image_set_src(lv_image_0, icon);
     lv_obj_set_align(lv_image_0, LV_ALIGN_CENTER);
     lv_obj_add_style(lv_image_0, &style_icon, 0);
     lv_obj_bind_style(lv_image_0, &style_icon_dark, 0, &dark_theme, 1);
-
-
 
     LV_TRACE_OBJ_CREATE("finished");
 
@@ -99,3 +96,4 @@ lv_obj_t * icon_button_create(lv_obj_t * parent, void * icon, lv_color_t my_bg_c
 /**********************
  *   STATIC FUNCTIONS
  **********************/
+

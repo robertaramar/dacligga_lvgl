@@ -30,6 +30,7 @@
 		<color name="accent2_dark" value="0x887A3D" />
 		<color name="accent2_50_light" value="0xf3f0e7" />
 		<color name="accent2_50_dark" value="0x4A473E" />
+		<color name="dc_light_background" value="0xf1f6a7" />
 	</consts>
 
 	<styles>
@@ -41,28 +42,81 @@
 	<subjects>
 		<int name="dark_theme" value="0" help="0:light 1:dark" />
 
-		<int name="move_goal_target" value="800" />
+		<int name="bpm_active" value="121" />
+		<int
+			name="bpm_midi_uart"
+			value="100"
+			help="BPM currently transmitted via USB MIDI"
+			min_value="40"
+			max_value="240"
+		/>
+		<int
+			name="bpm_midi_usb"
+			value="111"
+			help="BPM currently transmitted via UART MIDI"
+			min_value="40"
+			max_value="240"
+		/>
+		<int
+			name="bpm_internal"
+			value="99"
+			help="BPM currently generated via internal timer"
+			min_value="40"
+			max_value="240"
+		/>
 
-		<int name="location1_temp" value="25" />
-		<int name="location2_temp" value="34" />
+		<int
+			name="in_midi_uart"
+			value="0"
+			help="Switches the MIDI UART clock source on/off"
+			min_value="0"
+			max_value="1"
+		/>
+		<int
+			name="in_midi_usb"
+			value="0"
+			help="Switches the MIDI USB clock source on/off"
+			min_value="0"
+			max_value="1"
+		/>
+		<int
+			name="in_internal"
+			value="0"
+			help="Switches the internal clock source on/off"
+			min_value="0"
+			max_value="1"
+		/>
 
-		<int name="thermostat_on" value="1" help="0:disabled, 1:enabled" />
-		<int name="thermostat_temp" value="16" help="The target temperature set on the thermostat" />
-		<int name="room_temp" value="24" help="The current temperature" />
+		<int
+			name="out_midi_uart"
+			value="0"
+			help="Switches the MIDI UART click emitter on/off"
+			min_value="0"
+			max_value="1"
+		/>
+		<int
+			name="out_midi_usb"
+			value="0"
+			help="Switches the MIDI USB click emitter on/off"
+			min_value="0"
+			max_value="1"
+		/>
+		<int
+			name="out_midi_lineout"
+			value="0"
+			help="Switches the line out click emitter on/off"
+			min_value="0"
+			max_value="1"
+		/>
+		<int
+			name="out_midi_buzzer"
+			value="0"
+			help="Switches the buzzer click emitter on/off"
+			min_value="0"
+			max_value="1"
+		/>
 
-		<int name="alarm_on" value="1" help="0:disabled 1:enabled" />
-		<int name="alarm_hour" value="06" />
-		<int name="alarm_min" value="36" />
-
-		<int name="speaker" value="1" help="0:disabled 1:enabled" />
-		<int name="speaker_vol" value="40" />
-
-		<int name="light_temperature" value="1" help="0:disabled 1:enabled" />
-		<int name="light_temperature_temp" value="3000" />
-
-		<int name="song_played" value="130" />
-		<int name="song_liked" value="0" />
-		<int name="song_playing" value="0" />
+		<string name="out_midi_uart_note_emphasized" value="C#4" help="Name of the note of the emphasized click" />
 	</subjects>
 
 	<images>
@@ -93,4 +147,6 @@
 			symbols="äöüÄÖÜß"
 		/>
 	</fonts>
+
+	<config help="333" name="bbb" />
 </globals>
