@@ -31,6 +31,8 @@
 		<color name="accent2_50_light" value="0xf3f0e7" />
 		<color name="accent2_50_dark" value="0x4A473E" />
 		<color name="dc_light_background" value="0xf1f6a7" />
+		<string name="heartbeat_left" value="&lt;&lt;" />
+		<string name="heartbeat_right" value="&gt;&gt;" />
 	</consts>
 
 	<styles>

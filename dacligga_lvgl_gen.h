@@ -79,6 +79,10 @@ extern "C" {
 
 #define DC_LIGHT_BACKGROUND lv_color_hex(0xf1f6a7)
 
+#define HEARTBEAT_LEFT "<<"
+
+#define HEARTBEAT_RIGHT ">>"
+
 /**********************
  *      TYPEDEFS
  **********************/
@@ -142,6 +146,10 @@ extern lv_subject_t out_midi_uart_note_emphasized;
 /*----------------
  * Event Callbacks
  *----------------*/
+
+void input_button_callback(lv_event_t * e);
+void bpm_button_callback(lv_event_t * e);
+void output_button_callback(lv_event_t * e);
 
 /**
  * Initialize the component library

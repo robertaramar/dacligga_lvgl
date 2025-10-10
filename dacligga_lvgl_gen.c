@@ -229,6 +229,9 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     lv_xml_register_subject(NULL, "out_midi_uart_note_emphasized", &out_midi_uart_note_emphasized);
 
     /* Register callbacks */
+    lv_xml_register_event_cb(NULL, "input_button_callback", input_button_callback);
+    lv_xml_register_event_cb(NULL, "bpm_button_callback", bpm_button_callback);
+    lv_xml_register_event_cb(NULL, "output_button_callback", output_button_callback);
 #endif
 
     /* Register all the global assets so that they won't be created again when globals.xml is parsed.
@@ -252,6 +255,23 @@ void dacligga_lvgl_init_gen(const char * asset_path)
 }
 
 /* Callbacks */
+#if defined(LV_EDITOR_PREVIEW)
+void __attribute__((weak)) input_button_callback(lv_event_t * e)
+{
+    LV_UNUSED(e);
+    LV_LOG("input_button_callback was called\n");
+}
+void __attribute__((weak)) bpm_button_callback(lv_event_t * e)
+{
+    LV_UNUSED(e);
+    LV_LOG("bpm_button_callback was called\n");
+}
+void __attribute__((weak)) output_button_callback(lv_event_t * e)
+{
+    LV_UNUSED(e);
+    LV_LOG("output_button_callback was called\n");
+}
+#endif
 
 /**********************
  *   STATIC FUNCTIONS
