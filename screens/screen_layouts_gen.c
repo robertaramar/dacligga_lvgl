@@ -141,12 +141,12 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_bind_checked(icon_button_4, &out_midi_usb);
     lv_obj_add_event_cb(icon_button_4, output_button_callback, LV_EVENT_CLICKED, "output-usb");
     
-    lv_obj_t * icon_button_5 = icon_button_create(row_3, icon_earbuds, lv_color_hex(0xb05cbb));
+    lv_obj_t * icon_button_5 = icon_button_create(row_3, icon_lineout, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_5, lv_pct(100));
     lv_obj_bind_checked(icon_button_5, &out_midi_lineout);
     lv_obj_add_event_cb(icon_button_5, output_button_callback, LV_EVENT_CLICKED, "output-lineout");
     
-    lv_obj_t * icon_button_6 = icon_button_create(row_3, icon_speaker, lv_color_hex(0xb05cbb));
+    lv_obj_t * icon_button_6 = icon_button_create(row_3, icon_buzzer, lv_color_hex(0xb05cbb));
     lv_obj_set_height(icon_button_6, lv_pct(100));
     lv_obj_bind_checked(icon_button_6, &out_midi_buzzer);
     lv_obj_add_event_cb(icon_button_6, output_button_callback, LV_EVENT_CLICKED, "output-buzzer");

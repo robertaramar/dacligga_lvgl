@@ -69,14 +69,14 @@ extern lv_font_t big_shoulders_14_data;
  * Images
  *----------------*/
 
-const void * icon_earbuds;
-extern const void * icon_earbuds_data;
+const void * icon_lineout;
+extern const void * icon_lineout_data;
 const void * icon_gear;
 extern const void * icon_gear_data;
 const void * icon_midi;
 extern const void * icon_midi_data;
-const void * icon_speaker;
-extern const void * icon_speaker_data;
+const void * icon_buzzer;
+extern const void * icon_buzzer_data;
 const void * icon_usb;
 extern const void * icon_usb_data;
 
@@ -148,10 +148,10 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /*----------------
      * Images
      *----------------*/
-    icon_earbuds = &icon_earbuds_data;
+    icon_lineout = &icon_lineout_data;
     icon_gear = &icon_gear_data;
     icon_midi = &icon_midi_data;
-    icon_speaker = &icon_speaker_data;
+    icon_buzzer = &icon_buzzer_data;
     icon_usb = &icon_usb_data;
 
     /*----------------
@@ -238,10 +238,10 @@ void dacligga_lvgl_init_gen(const char * asset_path)
      * While running in the editor skip this step to update the preview when the XML changes */
 #if LV_USE_XML && !defined(LV_EDITOR_PREVIEW)
     /* Register images */
-    lv_xml_register_image(NULL, "icon_earbuds", icon_earbuds);
+    lv_xml_register_image(NULL, "icon_lineout", icon_lineout);
     lv_xml_register_image(NULL, "icon_gear", icon_gear);
     lv_xml_register_image(NULL, "icon_midi", icon_midi);
-    lv_xml_register_image(NULL, "icon_speaker", icon_speaker);
+    lv_xml_register_image(NULL, "icon_buzzer", icon_buzzer);
     lv_xml_register_image(NULL, "icon_usb", icon_usb);
 #endif
 

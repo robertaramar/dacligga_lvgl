@@ -87,10 +87,10 @@
 				<icon_button icon="icon_usb" height="100%" bind_checked="out_midi_usb">
 					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-usb" />
 				</icon_button>
-				<icon_button icon="icon_earbuds" height="100%" bind_checked="out_midi_lineout">
+				<icon_button icon="icon_lineout" height="100%" bind_checked="out_midi_lineout">
 					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-lineout" />
 				</icon_button>
-				<icon_button icon="icon_speaker" height="100%" bind_checked="out_midi_buzzer">
+				<icon_button icon="icon_buzzer" height="100%" bind_checked="out_midi_buzzer">
 					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-buzzer" />
 				</icon_button>
 			</row>

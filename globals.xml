@@ -122,10 +122,10 @@
 	</subjects>
 
 	<images>
-		<data name="icon_earbuds" color_format="rgb565a8" src_path="images/icon_earbuds.png" />
+		<data name="icon_lineout" color_format="rgb565a8" src_path="images/icon_lineout.png" />
 		<data name="icon_gear" color_format="rgb565a8" src_path="images/icon_gear.png" />
 		<data name="icon_midi" color_format="rgb565a8" src_path="images/icon_midi.png" />
-		<data name="icon_speaker" color_format="rgb565a8" src_path="images/icon_speaker.png" />
+		<data name="icon_buzzer" color_format="rgb565a8" src_path="images/icon_buzzer.png" />
 		<data name="icon_usb" color_format="rgb565a8" src_path="images/icon_usb.png" />
 	</images>
 

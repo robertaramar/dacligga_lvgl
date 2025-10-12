@@ -115,10 +115,10 @@ extern lv_font_t * big_shoulders_14;
  * Images
  *----------------*/
 
-extern const void * icon_earbuds;
+extern const void * icon_lineout;
 extern const void * icon_gear;
 extern const void * icon_midi;
-extern const void * icon_speaker;
+extern const void * icon_buzzer;
 extern const void * icon_usb;
 
 /*----------------
