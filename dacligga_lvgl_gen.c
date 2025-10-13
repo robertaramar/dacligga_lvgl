@@ -31,15 +31,6 @@
  * Translations
  *----------------*/
 
-#ifndef LV_EDITOR_PREVIEW
-    static const char * translation_languages[] = {"en", "de", NULL};
-    static const char * translation_tags[] = {"inputs", "outputs", NULL};
-    static const char * translation_texts[] = {
-        "Inputs", "Quellen", /* inputs */
-        "Outputs", "Ausgaben", /* outputs */
-    };
-#endif
-
 /**********************
  *  GLOBAL VARIABLES
  **********************/
@@ -86,6 +77,7 @@ extern const void * icon_usb_data;
 
 lv_subject_t dark_theme;
 lv_subject_t bpm_active;
+lv_subject_t bpm_running;
 lv_subject_t bpm_midi_uart;
 lv_subject_t bpm_midi_usb;
 lv_subject_t bpm_internal;
@@ -96,7 +88,6 @@ lv_subject_t out_midi_uart;
 lv_subject_t out_midi_usb;
 lv_subject_t out_midi_lineout;
 lv_subject_t out_midi_buzzer;
-lv_subject_t out_midi_uart_note_emphasized;
 
 /**********************
  *      MACROS
@@ -159,52 +150,21 @@ void dacligga_lvgl_init_gen(const char * asset_path)
      *----------------*/
     lv_subject_init_int(&dark_theme, 0);
     lv_subject_init_int(&bpm_active, 121);
+    lv_subject_init_int(&bpm_running, 0);
     lv_subject_init_int(&bpm_midi_uart, 100);
-    lv_subject_set_min_value_int(&bpm_midi_uart, 40);
-    lv_subject_set_max_value_int(&bpm_midi_uart, 240);
     lv_subject_init_int(&bpm_midi_usb, 111);
-    lv_subject_set_min_value_int(&bpm_midi_usb, 40);
-    lv_subject_set_max_value_int(&bpm_midi_usb, 240);
     lv_subject_init_int(&bpm_internal, 99);
-    lv_subject_set_min_value_int(&bpm_internal, 40);
-    lv_subject_set_max_value_int(&bpm_internal, 240);
     lv_subject_init_int(&in_midi_uart, 0);
-    lv_subject_set_min_value_int(&in_midi_uart, 0);
-    lv_subject_set_max_value_int(&in_midi_uart, 1);
     lv_subject_init_int(&in_midi_usb, 0);
-    lv_subject_set_min_value_int(&in_midi_usb, 0);
-    lv_subject_set_max_value_int(&in_midi_usb, 1);
     lv_subject_init_int(&in_internal, 0);
-    lv_subject_set_min_value_int(&in_internal, 0);
-    lv_subject_set_max_value_int(&in_internal, 1);
     lv_subject_init_int(&out_midi_uart, 0);
-    lv_subject_set_min_value_int(&out_midi_uart, 0);
-    lv_subject_set_max_value_int(&out_midi_uart, 1);
     lv_subject_init_int(&out_midi_usb, 0);
-    lv_subject_set_min_value_int(&out_midi_usb, 0);
-    lv_subject_set_max_value_int(&out_midi_usb, 1);
     lv_subject_init_int(&out_midi_lineout, 0);
-    lv_subject_set_min_value_int(&out_midi_lineout, 0);
-    lv_subject_set_max_value_int(&out_midi_lineout, 1);
     lv_subject_init_int(&out_midi_buzzer, 0);
-    lv_subject_set_min_value_int(&out_midi_buzzer, 0);
-    lv_subject_set_max_value_int(&out_midi_buzzer, 1);
-    static char out_midi_uart_note_emphasized_buf[UI_SUBJECT_STRING_LENGTH];
-    static char out_midi_uart_note_emphasized_prev_buf[UI_SUBJECT_STRING_LENGTH];
-    lv_subject_init_string(&out_midi_uart_note_emphasized,
-                           out_midi_uart_note_emphasized_buf,
-                           out_midi_uart_note_emphasized_prev_buf,
-                           UI_SUBJECT_STRING_LENGTH,
-                           "C#4"
-                          );
 
     /*----------------
      * Translations
      *----------------*/
-
-    #ifndef LV_EDITOR_PREVIEW
-        lv_translation_add_static(translation_languages, translation_tags, translation_texts);
-    #endif
 
 #if LV_USE_XML
     /* Register widgets */
@@ -216,6 +176,7 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     /* Register subjects */
     lv_xml_register_subject(NULL, "dark_theme", &dark_theme);
     lv_xml_register_subject(NULL, "bpm_active", &bpm_active);
+    lv_xml_register_subject(NULL, "bpm_running", &bpm_running);
     lv_xml_register_subject(NULL, "bpm_midi_uart", &bpm_midi_uart);
     lv_xml_register_subject(NULL, "bpm_midi_usb", &bpm_midi_usb);
     lv_xml_register_subject(NULL, "bpm_internal", &bpm_internal);
@@ -226,7 +187,6 @@ void dacligga_lvgl_init_gen(const char * asset_path)
     lv_xml_register_subject(NULL, "out_midi_usb", &out_midi_usb);
     lv_xml_register_subject(NULL, "out_midi_lineout", &out_midi_lineout);
     lv_xml_register_subject(NULL, "out_midi_buzzer", &out_midi_buzzer);
-    lv_xml_register_subject(NULL, "out_midi_uart_note_emphasized", &out_midi_uart_note_emphasized);
 
     /* Register callbacks */
     lv_xml_register_event_cb(NULL, "input_button_callback", input_button_callback);

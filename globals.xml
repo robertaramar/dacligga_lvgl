@@ -31,8 +31,6 @@
 		<color name="accent2_50_light" value="0xf3f0e7" />
 		<color name="accent2_50_dark" value="0x4A473E" />
 		<color name="dc_light_background" value="0xf1f6a7" />
-		<string name="heartbeat_left" value="&lt;&lt;" />
-		<string name="heartbeat_right" value="&gt;&gt;" />
 	</consts>
 
 	<styles>
@@ -45,80 +43,19 @@
 		<int name="dark_theme" value="0" help="0:light 1:dark" />
 
 		<int name="bpm_active" value="121" />
-		<int
-			name="bpm_midi_uart"
-			value="100"
-			help="BPM currently transmitted via USB MIDI"
-			min_value="40"
-			max_value="240"
-		/>
-		<int
-			name="bpm_midi_usb"
-			value="111"
-			help="BPM currently transmitted via UART MIDI"
-			min_value="40"
-			max_value="240"
-		/>
-		<int
-			name="bpm_internal"
-			value="99"
-			help="BPM currently generated via internal timer"
-			min_value="40"
-			max_value="240"
-		/>
+		<int name="bpm_running" value="0" />
+		<int name="bpm_midi_uart" value="100" help="BPM currently transmitted via USB MIDI" />
+		<int name="bpm_midi_usb" value="111" help="BPM currently transmitted via UART MIDI" />
+		<int name="bpm_internal" value="99" help="BPM currently generated via internal timer" />
 
-		<int
-			name="in_midi_uart"
-			value="0"
-			help="Switches the MIDI UART clock source on/off"
-			min_value="0"
-			max_value="1"
-		/>
-		<int
-			name="in_midi_usb"
-			value="0"
-			help="Switches the MIDI USB clock source on/off"
-			min_value="0"
-			max_value="1"
-		/>
-		<int
-			name="in_internal"
-			value="0"
-			help="Switches the internal clock source on/off"
-			min_value="0"
-			max_value="1"
-		/>
+		<int name="in_midi_uart" value="0" help="Switches the MIDI UART clock source on/off" />
+		<int name="in_midi_usb" value="0" help="Switches the MIDI USB clock source on/off" />
+		<int name="in_internal" value="0" help="Switches the internal clock source on/off" />
 
-		<int
-			name="out_midi_uart"
-			value="0"
-			help="Switches the MIDI UART click emitter on/off"
-			min_value="0"
-			max_value="1"
-		/>
-		<int
-			name="out_midi_usb"
-			value="0"
-			help="Switches the MIDI USB click emitter on/off"
-			min_value="0"
-			max_value="1"
-		/>
-		<int
-			name="out_midi_lineout"
-			value="0"
-			help="Switches the line out click emitter on/off"
-			min_value="0"
-			max_value="1"
-		/>
-		<int
-			name="out_midi_buzzer"
-			value="0"
-			help="Switches the buzzer click emitter on/off"
-			min_value="0"
-			max_value="1"
-		/>
-
-		<string name="out_midi_uart_note_emphasized" value="C#4" help="Name of the note of the emphasized click" />
+		<int name="out_midi_uart" value="0" help="Switches the MIDI UART click emitter on/off" />
+		<int name="out_midi_usb" value="0" help="Switches the MIDI USB click emitter on/off" />
+		<int name="out_midi_lineout" value="0" help="Switches the line out click emitter on/off" />
+		<int name="out_midi_buzzer" value="0" help="Switches the buzzer click emitter on/off" />
 	</subjects>
 
 	<images>

@@ -79,10 +79,6 @@ extern "C" {
 
 #define DC_LIGHT_BACKGROUND lv_color_hex(0xf1f6a7)
 
-#define HEARTBEAT_LEFT "<<"
-
-#define HEARTBEAT_RIGHT ">>"
-
 /**********************
  *      TYPEDEFS
  **********************/
@@ -127,6 +123,7 @@ extern const void * icon_usb;
 
 extern lv_subject_t dark_theme;
 extern lv_subject_t bpm_active;
+extern lv_subject_t bpm_running;
 extern lv_subject_t bpm_midi_uart;
 extern lv_subject_t bpm_midi_usb;
 extern lv_subject_t bpm_internal;
@@ -137,7 +134,6 @@ extern lv_subject_t out_midi_uart;
 extern lv_subject_t out_midi_usb;
 extern lv_subject_t out_midi_lineout;
 extern lv_subject_t out_midi_buzzer;
-extern lv_subject_t out_midi_uart_note_emphasized;
 
 /**********************
  * GLOBAL PROTOTYPES

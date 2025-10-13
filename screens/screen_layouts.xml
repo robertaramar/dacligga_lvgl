@@ -1,18 +1,16 @@
 <!-- This screen contains many nested layouts.
      By pressing Ctrl or Cmd you can visualize the bounding box of the UI elements -->
 <screen>
+	<styles>
+		<style name="bpm_button_checked" bg_opa="100%" bg_color="0x008000" />
+	</styles>
 	<view style_bg_color="#dc_light_background">
 		<!-- The whole screen is a column layout: header on the top and some content below it -->
 		<column width="100%" height="100%">
 			<!-- A header where the children are placed in a row.
 			     "space_between" uses the whole space evenly -->
 			<row width="100%" height="10%" style_flex_main_place="space_between" style_pad_all="2" align="center">
-				<lv_label
-					translation_tag="inputs"
-					style_text_font="big_shoulders_14"
-					width="100%"
-					style_text_align="center"
-				/>
+				<lv_label text="Inputs" style_text_font="big_shoulders_14" width="100%" style_text_align="center" />
 			</row>
 			<row
 				width="100%"
@@ -22,14 +20,14 @@
 				style_border_width="1"
 				style_border_side="bottom"
 			>
-				<icon_button icon="icon_midi" height="100%" bind_checked="in_midi_uart">
-					<event_cb callback="input_button_callback" trigger="clicked" user_data="input-uart" />
+				<icon_button name="btn_input_uart" icon="icon_midi" height="100%" bind_checked="in_midi_uart">
+					<event_cb callback="input_button_callback" trigger="clicked" user_data="CLOCKSOURCE_UART" />
 				</icon_button>
-				<icon_button icon="icon_usb" height="100%" bind_checked="in_midi_usb">
-					<event_cb callback="input_button_callback" trigger="clicked" user_data="input-usb" />
+				<icon_button name="btn_input_usb" icon="icon_usb" height="100%" bind_checked="in_midi_usb">
+					<event_cb callback="input_button_callback" trigger="clicked" user_data="CLOCKSOURCE_USB" />
 				</icon_button>
-				<icon_button icon="icon_gear" height="100%" bind_checked="in_internal">
-					<event_cb callback="input_button_callback" trigger="clicked" user_data="input-internal" />
+				<icon_button name="btn_input_internal" icon="icon_gear" height="100%" bind_checked="in_internal">
+					<event_cb callback="input_button_callback" trigger="clicked" user_data="CLOCKSOURCE_INTERNAL" />
 				</icon_button>
 			</row>
 
@@ -41,17 +39,33 @@
 				align="center"
 				style_border_color="0x000000"
 			>
-				<lv_label
-					width="20%"
-					height="100%"
+				<lv_button
+					name="btn_bpm_minus"
 					align="center"
-					hidden="1"
-					style_align="center"
-					text="#heartbeat_left"
-					style_text_font="big_shoulders_45"
-					style_text_align="center"
-				/>
-				<lv_button align="center" width="40%" height="90%" style_pad_all="0" style_bg_color="0x7c0000">
+					width="20%"
+					height="90%"
+					style_pad_all="0"
+					style_pad_left="15%"
+					style_bg_color="0x000000"
+					style_margin_right="25%"
+				>
+					<lv_label
+						text="-"
+						style_text_color="0xffffff"
+						style_text_font="big_shoulders_45"
+						width="20%"
+						style_text_align="center"
+					/>
+				</lv_button>
+				<lv_button
+					name="btn_bpm"
+					align="center"
+					width="40%"
+					height="90%"
+					style_pad_all="0"
+					style_bg_color="0x800000"
+					bind_checked="bpm_running"
+				>
 					<lv_label
 						bind_text="bpm_active"
 						style_text_font="big_shoulders_45"
@@ -59,17 +73,26 @@
 						style_text_align="center"
 					/>
 					<event_cb callback="bpm_button_callback" trigger="clicked" user_data="bpm-button" />
+					<style name="bpm_button_checked" selector="checked" />
 				</lv_button>
-				<lv_label
-					width="20%"
-					height="100%"
+				<lv_button
+					name="btn_bpm_plus"
 					align="center"
-					hidden="1"
-					style_align="center"
-					text="#heartbeat_right"
-					style_text_font="big_shoulders_45"
-					style_text_align="center"
-				/>
+					width="20%"
+					height="90%"
+					style_pad_all="0"
+					style_pad_left="15%"
+					style_bg_color="0x000000"
+					style_margin_left="25%"
+				>
+					<lv_label
+						text="+"
+						style_text_color="0xffffff"
+						style_text_font="big_shoulders_45"
+						width="20%"
+						style_text_align="center"
+					/>
+				</lv_button>
 			</row>
 
 			<row
@@ -81,26 +104,26 @@
 				style_border_width="1"
 				style_border_side="top"
 			>
-				<icon_button icon="icon_midi" height="100%" bind_checked="out_midi_uart">
-					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-uart" />
+				<icon_button name="btn_output_uart" icon="icon_midi" height="100%" bind_checked="out_midi_uart">
+					<event_cb callback="output_button_callback" trigger="clicked" user_data="EMITTER_UART" />
 				</icon_button>
-				<icon_button icon="icon_usb" height="100%" bind_checked="out_midi_usb">
-					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-usb" />
+				<icon_button name="btn_output_usb" icon="icon_usb" height="100%" bind_checked="out_midi_usb">
+					<event_cb callback="output_button_callback" trigger="clicked" user_data="EMITTER_USB" />
 				</icon_button>
-				<icon_button icon="icon_lineout" height="100%" bind_checked="out_midi_lineout">
-					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-lineout" />
+				<icon_button
+					name="btn_output_lineout"
+					icon="icon_lineout"
+					height="100%"
+					bind_checked="out_midi_lineout"
+				>
+					<event_cb callback="output_button_callback" trigger="clicked" user_data="EMITTER_LINEOUT" />
 				</icon_button>
-				<icon_button icon="icon_buzzer" height="100%" bind_checked="out_midi_buzzer">
-					<event_cb callback="output_button_callback" trigger="clicked" user_data="output-buzzer" />
+				<icon_button name="btn_output_buzzer" icon="icon_buzzer" height="100%" bind_checked="out_midi_buzzer">
+					<event_cb callback="output_button_callback" trigger="clicked" user_data="EMITTER_BUZZER" />
 				</icon_button>
 			</row>
 			<row width="100%" height="10%" style_flex_main_place="space_between" style_pad_all="2" align="center">
-				<lv_label
-					translation_tag="outputs"
-					style_text_font="big_shoulders_14"
-					width="100%"
-					style_text_align="center"
-				/>
+				<lv_label text="Outputs" style_text_font="big_shoulders_14" width="100%" style_text_align="center" />
 			</row>
 		</column>
 	</view>
