@@ -190,6 +190,7 @@ void dacligga_lvgl_init_gen(const char * asset_path)
 
     /* Register callbacks */
     lv_xml_register_event_cb(NULL, "input_button_callback", input_button_callback);
+    lv_xml_register_event_cb(NULL, "bpm_plusminus_callback", bpm_plusminus_callback);
     lv_xml_register_event_cb(NULL, "bpm_button_callback", bpm_button_callback);
     lv_xml_register_event_cb(NULL, "output_button_callback", output_button_callback);
 #endif
@@ -220,6 +221,11 @@ void __attribute__((weak)) input_button_callback(lv_event_t * e)
 {
     LV_UNUSED(e);
     LV_LOG("input_button_callback was called\n");
+}
+void __attribute__((weak)) bpm_plusminus_callback(lv_event_t * e)
+{
+    LV_UNUSED(e);
+    LV_LOG("bpm_plusminus_callback was called\n");
 }
 void __attribute__((weak)) bpm_button_callback(lv_event_t * e)
 {

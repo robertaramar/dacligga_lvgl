@@ -56,6 +56,8 @@
 						width="20%"
 						style_text_align="center"
 					/>
+					<event_cb callback="bpm_plusminus_callback" trigger="clicked" user_data="bpm-minus" />
+					<event_cb callback="bpm_plusminus_callback" trigger="long_pressed_repeat" user_data="bpm-minus" />
 				</lv_button>
 				<lv_button
 					name="btn_bpm"
@@ -92,6 +94,8 @@
 						width="20%"
 						style_text_align="center"
 					/>
+					<event_cb callback="bpm_plusminus_callback" trigger="clicked" user_data="bpm-plus" />
+					<event_cb callback="bpm_plusminus_callback" trigger="long_pressed_repeat" user_data="bpm-plus" />
 				</lv_button>
 			</row>
 

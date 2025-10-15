@@ -144,6 +144,7 @@ extern lv_subject_t out_midi_buzzer;
  *----------------*/
 
 void input_button_callback(lv_event_t * e);
+void bpm_plusminus_callback(lv_event_t * e);
 void bpm_button_callback(lv_event_t * e);
 void output_button_callback(lv_event_t * e);
 

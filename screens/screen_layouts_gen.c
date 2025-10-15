@@ -112,6 +112,8 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_set_width(lv_label_1, lv_pct(20));
     lv_obj_set_style_text_align(lv_label_1, LV_TEXT_ALIGN_CENTER, 0);
     
+    lv_obj_add_event_cb(btn_bpm_minus, bpm_plusminus_callback, LV_EVENT_CLICKED, "bpm-minus");
+    
     lv_obj_t * btn_bpm = lv_button_create(row_2);
     lv_obj_set_name(btn_bpm, "btn_bpm");
     lv_obj_set_align(btn_bpm, LV_ALIGN_CENTER);
@@ -144,6 +146,8 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_set_style_text_font(lv_label_3, big_shoulders_45, 0);
     lv_obj_set_width(lv_label_3, lv_pct(20));
     lv_obj_set_style_text_align(lv_label_3, LV_TEXT_ALIGN_CENTER, 0);
+    
+    lv_obj_add_event_cb(btn_bpm_plus, bpm_plusminus_callback, LV_EVENT_CLICKED, "bpm-plus");
     
     lv_obj_t * row_3 = row_create(column_0);
     lv_obj_set_width(row_3, lv_pct(100));
