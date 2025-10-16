@@ -12,7 +12,7 @@
 			<row
 				name="row_input_text"
 				width="100%"
-				height="10%"
+				flex_grow="1"
 				style_flex_main_place="space_between"
 				style_pad_all="2"
 				align="center"
@@ -28,7 +28,7 @@
 			<row
 				name="row_inputs"
 				width="100%"
-				height="25%"
+				flex_grow="3"
 				style_flex_main_place="space_between"
 				style_pad_all="4"
 				style_border_width="1"
@@ -48,28 +48,18 @@
 			<row
 				name="row_main_button"
 				width="100%"
-				height="30%"
+				flex_grow="3"
 				style_flex_main_place="space_evenly"
-				style_pad_all="8"
-				align="center"
-				style_border_color="0x000000"
+				style_pad_column="10%"
+				style_pad_all="5"
 			>
-				<lv_button
-					name="btn_bpm_minus"
-					align="center"
-					width="20%"
-					height="90%"
-					style_pad_all="0"
-					style_bg_color="0x000000"
-					style_margin_right="25%"
-				>
+				<lv_button name="btn_bpm_minus" flex_grow="1" style_pad_all="0" style_bg_color="0x000000">
 					<lv_label
 						name="label_button_minus"
 						text="-"
 						style_text_color="0xffffff"
 						style_text_font="big_shoulders_45"
-						width="100%"
-						style_text_align="center"
+						align="center"
 					/>
 					<event_cb callback="bpm_plusminus_callback" trigger="clicked" user_data="bpm-minus" />
 					<event_cb callback="bpm_plusminus_callback" trigger="long_pressed_repeat" user_data="bpm-minus" />
@@ -77,8 +67,7 @@
 				<lv_button
 					name="btn_bpm"
 					align="center"
-					width="40%"
-					height="90%"
+					flex_grow="2"
 					style_pad_all="0"
 					style_bg_color="0x800000"
 					bind_checked="bpm_running"
@@ -87,28 +76,18 @@
 						name="label_bpm"
 						bind_text="bpm_active"
 						style_text_font="big_shoulders_45"
-						width="100%"
-						style_text_align="center"
+						align="center"
 					/>
 					<event_cb callback="bpm_button_callback" trigger="clicked" user_data="bpm-button" />
 					<style name="bpm_button_checked" selector="checked" />
 				</lv_button>
-				<lv_button
-					name="btn_bpm_plus"
-					align="center"
-					width="20%"
-					height="90%"
-					style_pad_all="0"
-					style_bg_color="0x000000"
-					style_margin_left="25%"
-				>
+				<lv_button name="btn_bpm_plus" align="center" flex_grow="1" style_pad_all="0" style_bg_color="0x000000">
 					<lv_label
 						name="label_button_plus"
 						text="+"
 						style_text_color="0xffffff"
 						style_text_font="big_shoulders_45"
-						width="100%"
-						style_text_align="center"
+						align="center"
 					/>
 					<event_cb callback="bpm_plusminus_callback" trigger="clicked" user_data="bpm-plus" />
 					<event_cb callback="bpm_plusminus_callback" trigger="long_pressed_repeat" user_data="bpm-plus" />
@@ -118,7 +97,7 @@
 			<row
 				name="row_outputs"
 				width="100%"
-				height="25%"
+				flex_grow="3"
 				style_flex_main_place="space_between"
 				style_pad_all="4"
 				style_text_color="0xddd"
@@ -146,7 +125,7 @@
 			<row
 				name="row_label_output"
 				width="100%"
-				height="10%"
+				flex_grow="1"
 				style_flex_main_place="space_between"
 				style_pad_all="2"
 				align="center"

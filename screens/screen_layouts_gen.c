@@ -57,7 +57,7 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * row_input_text = row_create(column_main);
     lv_obj_set_name(row_input_text, "row_input_text");
     lv_obj_set_width(row_input_text, lv_pct(100));
-    lv_obj_set_height(row_input_text, lv_pct(10));
+    lv_obj_set_flex_grow(row_input_text, 1);
     lv_obj_set_style_flex_main_place(row_input_text, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_input_text, 2, 0);
     lv_obj_set_align(row_input_text, LV_ALIGN_CENTER);
@@ -71,7 +71,7 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * row_inputs = row_create(column_main);
     lv_obj_set_name(row_inputs, "row_inputs");
     lv_obj_set_width(row_inputs, lv_pct(100));
-    lv_obj_set_height(row_inputs, lv_pct(25));
+    lv_obj_set_flex_grow(row_inputs, 3);
     lv_obj_set_style_flex_main_place(row_inputs, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_inputs, 4, 0);
     lv_obj_set_style_border_width(row_inputs, 1, 0);
@@ -97,26 +97,21 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * row_main_button = row_create(column_main);
     lv_obj_set_name(row_main_button, "row_main_button");
     lv_obj_set_width(row_main_button, lv_pct(100));
-    lv_obj_set_height(row_main_button, lv_pct(30));
+    lv_obj_set_flex_grow(row_main_button, 3);
     lv_obj_set_style_flex_main_place(row_main_button, LV_FLEX_ALIGN_SPACE_EVENLY, 0);
-    lv_obj_set_style_pad_all(row_main_button, 8, 0);
-    lv_obj_set_align(row_main_button, LV_ALIGN_CENTER);
-    lv_obj_set_style_border_color(row_main_button, lv_color_hex(0x000000), 0);
+    lv_obj_set_style_pad_column(row_main_button, lv_pct(10), 0);
+    lv_obj_set_style_pad_all(row_main_button, 5, 0);
     lv_obj_t * btn_bpm_minus = lv_button_create(row_main_button);
     lv_obj_set_name(btn_bpm_minus, "btn_bpm_minus");
-    lv_obj_set_align(btn_bpm_minus, LV_ALIGN_CENTER);
-    lv_obj_set_width(btn_bpm_minus, lv_pct(20));
-    lv_obj_set_height(btn_bpm_minus, lv_pct(90));
+    lv_obj_set_flex_grow(btn_bpm_minus, 1);
     lv_obj_set_style_pad_all(btn_bpm_minus, 0, 0);
     lv_obj_set_style_bg_color(btn_bpm_minus, lv_color_hex(0x000000), 0);
-    lv_obj_set_style_margin_right(btn_bpm_minus, lv_pct(25), 0);
     lv_obj_t * label_button_minus = lv_label_create(btn_bpm_minus);
     lv_obj_set_name(label_button_minus, "label_button_minus");
     lv_label_set_text(label_button_minus, "-");
     lv_obj_set_style_text_color(label_button_minus, lv_color_hex(0xffffff), 0);
     lv_obj_set_style_text_font(label_button_minus, big_shoulders_45, 0);
-    lv_obj_set_width(label_button_minus, lv_pct(100));
-    lv_obj_set_style_text_align(label_button_minus, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_align(label_button_minus, LV_ALIGN_CENTER);
     
     lv_obj_add_event_cb(btn_bpm_minus, bpm_plusminus_callback, LV_EVENT_CLICKED, "bpm-minus");
     lv_obj_add_event_cb(btn_bpm_minus, bpm_plusminus_callback, LV_EVENT_LONG_PRESSED_REPEAT, "bpm-minus");
@@ -124,8 +119,7 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * btn_bpm = lv_button_create(row_main_button);
     lv_obj_set_name(btn_bpm, "btn_bpm");
     lv_obj_set_align(btn_bpm, LV_ALIGN_CENTER);
-    lv_obj_set_width(btn_bpm, lv_pct(40));
-    lv_obj_set_height(btn_bpm, lv_pct(90));
+    lv_obj_set_flex_grow(btn_bpm, 2);
     lv_obj_set_style_pad_all(btn_bpm, 0, 0);
     lv_obj_set_style_bg_color(btn_bpm, lv_color_hex(0x800000), 0);
     lv_obj_bind_checked(btn_bpm, &bpm_running);
@@ -133,8 +127,7 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_set_name(label_bpm, "label_bpm");
     lv_label_bind_text(label_bpm, &bpm_active, NULL);
     lv_obj_set_style_text_font(label_bpm, big_shoulders_45, 0);
-    lv_obj_set_width(label_bpm, lv_pct(100));
-    lv_obj_set_style_text_align(label_bpm, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_align(label_bpm, LV_ALIGN_CENTER);
     
     lv_obj_add_event_cb(btn_bpm, bpm_button_callback, LV_EVENT_CLICKED, "bpm-button");
     lv_obj_add_style(btn_bpm, &bpm_button_checked, LV_STATE_CHECKED);
@@ -142,18 +135,15 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * btn_bpm_plus = lv_button_create(row_main_button);
     lv_obj_set_name(btn_bpm_plus, "btn_bpm_plus");
     lv_obj_set_align(btn_bpm_plus, LV_ALIGN_CENTER);
-    lv_obj_set_width(btn_bpm_plus, lv_pct(20));
-    lv_obj_set_height(btn_bpm_plus, lv_pct(90));
+    lv_obj_set_flex_grow(btn_bpm_plus, 1);
     lv_obj_set_style_pad_all(btn_bpm_plus, 0, 0);
     lv_obj_set_style_bg_color(btn_bpm_plus, lv_color_hex(0x000000), 0);
-    lv_obj_set_style_margin_left(btn_bpm_plus, lv_pct(25), 0);
     lv_obj_t * label_button_plus = lv_label_create(btn_bpm_plus);
     lv_obj_set_name(label_button_plus, "label_button_plus");
     lv_label_set_text(label_button_plus, "+");
     lv_obj_set_style_text_color(label_button_plus, lv_color_hex(0xffffff), 0);
     lv_obj_set_style_text_font(label_button_plus, big_shoulders_45, 0);
-    lv_obj_set_width(label_button_plus, lv_pct(100));
-    lv_obj_set_style_text_align(label_button_plus, LV_TEXT_ALIGN_CENTER, 0);
+    lv_obj_set_align(label_button_plus, LV_ALIGN_CENTER);
     
     lv_obj_add_event_cb(btn_bpm_plus, bpm_plusminus_callback, LV_EVENT_CLICKED, "bpm-plus");
     lv_obj_add_event_cb(btn_bpm_plus, bpm_plusminus_callback, LV_EVENT_LONG_PRESSED_REPEAT, "bpm-plus");
@@ -161,7 +151,7 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * row_outputs = row_create(column_main);
     lv_obj_set_name(row_outputs, "row_outputs");
     lv_obj_set_width(row_outputs, lv_pct(100));
-    lv_obj_set_height(row_outputs, lv_pct(25));
+    lv_obj_set_flex_grow(row_outputs, 3);
     lv_obj_set_style_flex_main_place(row_outputs, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_outputs, 4, 0);
     lv_obj_set_style_text_color(row_outputs, lv_color_hex3(0xddd), 0);
@@ -194,7 +184,7 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_t * row_label_output = row_create(column_main);
     lv_obj_set_name(row_label_output, "row_label_output");
     lv_obj_set_width(row_label_output, lv_pct(100));
-    lv_obj_set_height(row_label_output, lv_pct(10));
+    lv_obj_set_flex_grow(row_label_output, 1);
     lv_obj_set_style_flex_main_place(row_label_output, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
     lv_obj_set_style_pad_all(row_label_output, 2, 0);
     lv_obj_set_align(row_label_output, LV_ALIGN_CENTER);
