@@ -98,9 +98,8 @@ lv_obj_t * screen_layouts_create(void)
     lv_obj_set_name(row_main_button, "row_main_button");
     lv_obj_set_width(row_main_button, lv_pct(100));
     lv_obj_set_flex_grow(row_main_button, 3);
-    lv_obj_set_style_flex_main_place(row_main_button, LV_FLEX_ALIGN_SPACE_EVENLY, 0);
-    lv_obj_set_style_pad_column(row_main_button, lv_pct(10), 0);
-    lv_obj_set_style_pad_all(row_main_button, 5, 0);
+    lv_obj_set_style_flex_main_place(row_main_button, LV_FLEX_ALIGN_SPACE_BETWEEN, 0);
+    lv_obj_set_style_pad_all(row_main_button, 4, 0);
     lv_obj_t * btn_bpm_minus = lv_button_create(row_main_button);
     lv_obj_set_name(btn_bpm_minus, "btn_bpm_minus");
     lv_obj_set_flex_grow(btn_bpm_minus, 1);
