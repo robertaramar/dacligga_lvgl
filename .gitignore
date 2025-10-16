@@ -3,3 +3,6 @@
 build/
 build-preview/
 preview-build/
+preview-bin/
+**/*.c
+**/*.h
